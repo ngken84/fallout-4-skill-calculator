@@ -84,6 +84,43 @@ $(function() {
 
         });
 
+        it('can be upgraded using various amounts of free points', function() {
+            // Strength
+            var success = testChar.upgradeFromFreePoints(testChar.strength, 2);
+            expect(success).toBe(true);
+            expect(testChar.strength()).toBe(3);
+
+            // Perception
+            success = testChar.upgradeFromFreePoints(testChar.perception, 2);
+            expect(success).toBe(true);
+            expect(testChar.perception()).toBe(3);
+
+            // Endurance
+            success = testChar.upgradeFromFreePoints(testChar.endurance, 2);
+            expect(success).toBe(true);
+            expect(testChar.endurance()).toBe(3);
+
+            // Charisma
+            success = testChar.upgradeFromFreePoints(testChar.charisma, 2);
+            expect(success).toBe(true);
+            expect(testChar.charisma()).toBe(3);
+
+            // Intelligence
+            success = testChar.upgradeFromFreePoints(testChar.intelligence, 2);
+            expect(success).toBe(true);
+            expect(testChar.intelligence()).toBe(3);
+
+            // Agility
+            success = testChar.upgradeFromFreePoints(testChar.agility, 2);
+            expect(success).toBe(true);
+            expect(testChar.agility()).toBe(3);
+
+            // Luck
+            success = testChar.upgradeFromFreePoints(testChar.luck, 2);
+            expect(success).toBe(true);
+            expect(testChar.luck()).toBe(3);
+        });
+
 
 
     });

@@ -19,8 +19,13 @@
 
  	self.upgradeFromFreePoints = function(stat, amount) {
  		if(stat) {
- 			stat(stat() + 1);
- 			return true;
+ 			if(amount) {
+ 				stat(stat() + amount);
+ 				return true;
+ 			} else {
+ 				stat(stat() + 1);
+ 				return true;
+ 			}
  		}
  		return false;
  	};
