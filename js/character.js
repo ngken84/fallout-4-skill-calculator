@@ -19,15 +19,14 @@
 
  	self.upgradeFromFreePoints = function(stat, amount) {
  		if(stat) {
- 			if(amount) {
- 				stat(stat() + amount);
- 				return true;
- 			} else {
- 				stat(stat() + 1);
- 				return true;
+ 			var value = amount || 1;
+ 			if(value > self.availablePoints()) {
+ 				return false;
  			}
+			stat(stat() + value);
+			self.availablePoints(self.availablePoints() - value);
+			return true;
  		}
  		return false;
  	};
-
  }

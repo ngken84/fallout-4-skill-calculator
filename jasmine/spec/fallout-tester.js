@@ -47,81 +47,110 @@ $(function() {
         });
 
         it('can be upgraded using free points', function() {
+            var availablePoints = testChar.availablePoints();
+            expect(availablePoints).toBe(22);
+
             // Strength
             var success = testChar.upgradeFromFreePoints(testChar.strength);
             expect(success).toBe(true);
             expect(testChar.strength()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Perception
             success = testChar.upgradeFromFreePoints(testChar.perception);
             expect(success).toBe(true);
             expect(testChar.perception()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Endurance
             success = testChar.upgradeFromFreePoints(testChar.endurance);
             expect(success).toBe(true);
             expect(testChar.endurance()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Charisma
             success = testChar.upgradeFromFreePoints(testChar.charisma);
             expect(success).toBe(true);
             expect(testChar.charisma()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Intelligence
             success = testChar.upgradeFromFreePoints(testChar.intelligence);
             expect(success).toBe(true);
             expect(testChar.intelligence()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Agility
             success = testChar.upgradeFromFreePoints(testChar.agility);
             expect(success).toBe(true);
             expect(testChar.agility()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
             // Luck
             success = testChar.upgradeFromFreePoints(testChar.luck);
             expect(success).toBe(true);
             expect(testChar.luck()).toBe(2);
+            expect(testChar.availablePoints()).toBe(--availablePoints);
 
         });
 
         it('can be upgraded using various amounts of free points', function() {
+            var availablePoints = testChar.availablePoints();
+
             // Strength
             var success = testChar.upgradeFromFreePoints(testChar.strength, 2);
             expect(success).toBe(true);
             expect(testChar.strength()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Perception
             success = testChar.upgradeFromFreePoints(testChar.perception, 2);
             expect(success).toBe(true);
             expect(testChar.perception()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Endurance
             success = testChar.upgradeFromFreePoints(testChar.endurance, 2);
             expect(success).toBe(true);
             expect(testChar.endurance()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Charisma
             success = testChar.upgradeFromFreePoints(testChar.charisma, 2);
             expect(success).toBe(true);
             expect(testChar.charisma()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Intelligence
             success = testChar.upgradeFromFreePoints(testChar.intelligence, 2);
             expect(success).toBe(true);
             expect(testChar.intelligence()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Agility
             success = testChar.upgradeFromFreePoints(testChar.agility, 2);
             expect(success).toBe(true);
             expect(testChar.agility()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
 
             // Luck
             success = testChar.upgradeFromFreePoints(testChar.luck, 2);
             expect(success).toBe(true);
             expect(testChar.luck()).toBe(3);
+            availablePoints = availablePoints - 2;
+            expect(testChar.availablePoints()).toBe(availablePoints);
         });
 
-
+        it('can not upgrade using more points than available', function() {
+            var test = testChar.upgradeFromFreePoints(testChar.strength, 100);
+            expect(test).toBe(false);
+        });
 
     });
     
