@@ -6,3 +6,8 @@
  * jQuery.
  */
 
+var FalloutAppModel = function() {
+    var self = this;
+
+    self.character = new Character();
+}

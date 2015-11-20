@@ -17,15 +17,18 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-md-6">
-                <h2>Hello</h2>
+            <div class="col-md-12">
+                <ul>
+                    <li>Strength: <span data-bind="text: character.strength"></span></li>
+                    <li>Perception: <span data-bind="text: character.perception"></span></li>
+                    <li>Endurance: <span data-bind="text: character.endurance"></span></li>
+                    <li>Charisma: <span data-bind="text: character.charisma"></span></li>
+                    <li>Intelligence: <span data-bind="text: character.intelligence"></span></li>
+                    <li>Agility: <span data-bind="text: character.agility"></span></li>
+                    <li>Luck: <span data-bind="text: character.luck"></span></li>
+                </ul>
             </div>
-            <div class="col-md-6">
-                <h2>World</h2>
-            </div>
-
         </div>
-
         
         <script src="js/lib/knockout-3.3.0.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -33,6 +36,9 @@
         <script src="js/perklist.js"></script>
         <script src="js/character.js"></script>
         <script src="js/app.js"></script>
+        <script>
+            ko.applyBindings(new FalloutAppModel());
+        </script>
 
         <script src="jasmine/spec/fallout-tester.js"></script>
     </body>
