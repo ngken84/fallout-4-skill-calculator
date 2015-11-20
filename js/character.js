@@ -17,6 +17,12 @@
 
  	self.availablePoints = ko.observable(22);
 
+ 	self.selectedPerks = [];
+ 	for(var i = 2, x = 75; i <= x; ++i) {
+ 		self.selectedPerks.push(new CharacterPerk(i));
+ 	}
+
+
  	self.upgradeFromFreePoints = function(stat, amount) {
  		if(stat) {
  			var value = amount || 1;

@@ -37,6 +37,12 @@ $(function() {
         it('starts with 22 available points', function() {
             expect(testChar.availablePoints()).toBe(22);
         });
+
+        it('starts with 74 empty character perks', function() {
+            $.each(testChar.selectedPerks, function(index, value) {
+                expect(value.perkLevel()).toBe(0);
+            });
+        });
     });
 
     describe('Character Modification', function() {
@@ -152,6 +158,43 @@ $(function() {
             expect(test).toBe(false);
         });
 
+        it('can invoke attribute based on a name', function() {
+            expect(testChar['strength']()).toBe(1);
+        });
+
     });
     
+    describe('Perk Initialization', function() {
+
+        var testPerk;
+
+        beforeEach(function() {
+            var perkList = [
+                {
+                    desc: 'As the rule everyone turns to, you are able to establish supply lines between your workshop settlements', 
+                    req: 1
+                },
+                {
+                    desc: 'You can build stores and workstations at workshop settlements.',
+                    req: 14
+                }
+            ];
+            testPerk = new Perk('Local Leader', 'charisma', perkList);
+        });
+
+        it('can be instantiated', function() {
+            
+            expect(testPerk).toBeDefined();
+        });
+
+        it('has all parameters that make it a perk', function() {
+            expect(testPerk.name).toBeDefined();
+            expect(testPerk.description).not.toBeDefined();
+        });
+
+
+
+    });
+    
+
 }());
