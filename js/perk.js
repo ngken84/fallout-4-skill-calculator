@@ -14,11 +14,11 @@ var PerkLevel = function(l, d, r) {
 }
 
 
- var Perk = function(n, a, l) {
+ var Perk = function(n, a, req, l) {
  	var self = this;
  	self.name = n;
  	self.specialStat = a;
-
+ 	self.specialLvl = req;
  	self.levelList = [];
  	$.each(l, function(i, val) {
  		self.levelList.push(new PerkLevel(i + 1, val.desc, val.req));

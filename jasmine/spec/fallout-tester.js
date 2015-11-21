@@ -179,7 +179,7 @@ $(function() {
                     req: 14
                 }
             ];
-            testPerk = new Perk('Local Leader', 'charisma', perkList);
+            testPerk = new Perk('Local Leader', 'charisma', 6, perkList);
         });
 
         it('can be instantiated', function() {
@@ -191,9 +191,6 @@ $(function() {
             expect(testPerk.name).toBeDefined();
             expect(testPerk.description).not.toBeDefined();
         });
-
-
-
     });
     
 
