@@ -25,10 +25,14 @@ var PerkLevel = function(l, d, r) {
  	});
  }
 
- var CharacterPerk = function(l) {
+ var CharacterPerk = function(l, m, lock) {
  	var self = this;
 
  	self.level = l;
+ 	self.locked = false;
+ 	self.message = ko.observable();
+ 	self.statBoost = ko.observable();
  	self.perkLevel = ko.observable(0);
  	self.perk = ko.observable();
  }
+

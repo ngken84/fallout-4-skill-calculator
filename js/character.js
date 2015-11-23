@@ -18,8 +18,17 @@
  	self.availablePoints = ko.observable(22);
 
  	self.selectedPerks = [];
- 	for(var i = 2, x = 75; i <= x; ++i) {
- 		self.selectedPerks.push(new CharacterPerk(i));
+ 	for(var i = 0, x = 75; i <= x; ++i) {
+ 		if(i < 2) {
+ 			self.selectedPerks.push(new CharacterPerk(i, 'No Perk', true));
+ 		} else {
+ 			self.selectedPerks.push(new CharacterPerk(i, 'No Perk Selected', false));
+ 		}
+ 		
+ 	}
+
+ 	self.selectPerk = function(level, perk, perkLevel) {
+ 		
  	}
 
 
