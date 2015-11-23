@@ -6,10 +6,27 @@
  * jQuery.
  */
 
+ko.bindingHandlers.starLevel = {
+    init: function(element, valueAccessor) {
+        $(element).addClass("starLevel");
+        for(var i = 0; i < 11; ++i) {
+            $('<span>').appendTo(element);
+        }
+    },
+
+    update: function(element, valueAccessor) {
+        var observable = valueAccessor();
+        $('span', element).each(function(index) {
+            $(this).toggleClass("allocated", index < observable());
+        });
+    }
+};
+
 var FalloutAppModel = function() {
     var self = this;
 
     self.character = new Character();
 
-    
+    self.strengthPerks = getStrengthPerks();
 }
+

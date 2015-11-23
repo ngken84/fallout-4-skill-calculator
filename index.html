@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul>
-                    <li>Strength: <span data-bind="text: character.strength"></span></li>
+                    <li>Strength: <span data-bind="starLevel: character.strength"></span></li>
                     <li>Perception: <span data-bind="text: character.perception"></span></li>
                     <li>Endurance: <span data-bind="text: character.endurance"></span></li>
                     <li>Charisma: <span data-bind="text: character.charisma"></span></li>
@@ -28,6 +28,12 @@
                     <li>Luck: <span data-bind="text: character.luck"></span></li>
                 </ul>
             </div>
+        </div>
+
+        <div class="row">
+            <ul data-bind="foreach: strengthPerks">
+                <li data-bind="text: name"></li>
+            </ul>
         </div>
         
         <script src="js/lib/knockout-3.3.0.js"></script>

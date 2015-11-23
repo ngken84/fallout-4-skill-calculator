@@ -1,0 +1,10 @@
+.starLevel span {
+     background: url(../img/empty-star.png) no-repeat center center;
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.starLevel .allocated {
+    background: url(../img/star.png) no-repeat center center;
+}
