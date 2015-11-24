@@ -34,7 +34,6 @@
 
  	}
 
-
  	self.upgradeFromFreePoints = function(stat, amount) {
  		if(stat) {
  			var value = amount || 1;

@@ -213,6 +213,7 @@ $(function() {
         });
 
         it('can assign a perk', function() {
+            testChar.upgradeFromFreePoints(testChar.charisma, 5);
             testChar.selectPerk(2, testPerk, 0);
             expect(testPerk.levelList[0].selected()).toBe(true);
             expect(testChar.selectedPerks[2].perk()).toBe(testPerk);
@@ -224,7 +225,11 @@ $(function() {
             expect(testChar.selectedPerks[14].perkLevel()).toBe(1);
         });
 
-
+        it('a perk can\'t be assigned if the character does not meet the requirements', function() {
+            testChar.selectPerk(2, testPerk, 0);
+            expect(testPerk.levelList[0].selected()).toBe(false);
+            expect(testChar.selectedPerks[2].perk()).not.toBe(testPerk);
+        });
 
     });
 
