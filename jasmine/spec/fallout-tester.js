@@ -163,7 +163,7 @@ $(function() {
         });
 
     });
-    
+
     describe('Perk Initialization', function() {
 
         var testPerk;
@@ -193,5 +193,39 @@ $(function() {
         });
     });
     
+    describe('Perk Allocation', function() {
+        var testPerk;
+        var testChar;
+
+        beforeEach(function() {
+            var perkList = [
+                {
+                    desc: 'As the rule everyone turns to, you are able to establish supply lines between your workshop settlements', 
+                    req: 1
+                },
+                {
+                    desc: 'You can build stores and workstations at workshop settlements.',
+                    req: 14
+                }
+            ];
+            testPerk = new Perk('Local Leader', 'charisma', 6, perkList);
+            testChar = new Character();
+        });
+
+        it('can assign a perk', function() {
+            testChar.selectPerk(2, testPerk, 0);
+            expect(testPerk.levelList[0].selected()).toBe(true);
+            expect(testChar.selectedPerks[2].perk()).toBe(testPerk);
+            expect(testChar.selectedPerks[2].perkLevel()).toBe(0);
+
+            testChar.selectPerk(14, testPerk, 1);
+            expect(testPerk.levelList[1].selected()).toBe(true);
+            expect(testChar.selectedPerks[14].perk()).toBe(testPerk);
+            expect(testChar.selectedPerks[14].perkLevel()).toBe(1);
+        });
+
+
+
+    });
 
 }());

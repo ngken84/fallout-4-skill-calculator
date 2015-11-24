@@ -28,7 +28,10 @@
  	}
 
  	self.selectPerk = function(level, perk, perkLevel) {
- 		
+ 		perk.levelList[perkLevel].selected(true);
+ 		self.selectedPerks[level].perk(perk);
+ 		self.selectedPerks[level].perkLevel(perkLevel);
+
  	}
 
 
