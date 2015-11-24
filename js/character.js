@@ -28,10 +28,12 @@
  	}
 
  	self.selectPerk = function(level, perk, perkLevel) {
+ 		if(self[perk.specialStat]() < perk.specialLvl) {
+ 			return 'Not high enough ' + perk.specialStat;
+ 		}
  		perk.levelList[perkLevel].selected(true);
  		self.selectedPerks[level].perk(perk);
  		self.selectedPerks[level].perkLevel(perkLevel);
-
  	}
 
  	self.upgradeFromFreePoints = function(stat, amount) {
